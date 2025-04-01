@@ -98,3 +98,20 @@
     box-shadow: 0 0 10px #fff5;
     transform: scale(1.05);
 }
+
+/* Media Queries */
+
+@media (max-width: 768px) {
+    .login .formulario {
+        width: 90%;
+        min-height: 400px;
+    }
+
+    .login .formulario form {
+        width: 100%;
+    }
+
+    .login .formulario form button {
+        width: 50%;
+    }
+}

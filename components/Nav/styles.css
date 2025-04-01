@@ -5,7 +5,7 @@
     justify-content: center;
     align-items: center;
     color: #fff;
-    width: 100%;
+    width: 100dvw;
     top: 15px;
 }
 
@@ -116,4 +116,12 @@
 .navbar .nav-links a:hover, .navbar .nav-links > button:hover {
     background-color: #666;
     border: 2px solid #fff;
+}
+
+/*Media Queries*/
+
+@media (max-width: 768px) {
+    .navbar .nav-links {
+        width: 80%;
+    }
 }
