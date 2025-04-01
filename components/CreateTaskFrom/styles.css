@@ -1,0 +1,81 @@
+ .task-add h1 {
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+ .task-add form {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+}
+
+ .task-add .task-input {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+ .task-add input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #0003;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+ .task-add textarea {
+    width: 100%;
+    padding: 10px;
+    max-height: 200px;
+    margin-bottom: 10px;
+    border: 1px solid #0003;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    resize: none;
+
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: pre-wrap;
+    field-sizing: content;
+}
+
+ .task-add select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #0003;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+ .task-add .error{
+    color: red;
+    font-size: 14px;
+    height: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+ .task-add button {
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+    outline: none;
+}

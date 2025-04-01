@@ -1,0 +1,14 @@
+.page {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    align-items: start;
+    justify-content: center;
+    padding-top: 120px;
+    height: 100dvh;
+    gap: 40px;
+}
+
+.page h1 {
+    color: red;
+}

@@ -1,0 +1,71 @@
+.task {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    width: 100%;
+    padding: 20px 30px;
+    margin-bottom: 10px;
+    border: 2px solid #0006;
+    border-radius: 20px;
+    font-size: 16px;
+    outline: none;
+    background-color: #000b;
+    box-shadow: 0 0 10px #fff4;
+}
+
+.task:last-of-type {
+    margin-bottom: 0;
+}
+
+.task h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.task p {
+    font-size: 16px;
+    margin-bottom: 10px;
+    color: #fff;
+    white-space: pre-wrap;
+}
+
+.task .actions {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    top: 5px;
+    right: 4px;
+}
+
+.task .actions button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    padding: 5px;
+    border: none;
+    border-radius: 50%;
+    background-color: #fff;
+    color: #fff;
+    font-size: 20px;
+    cursor: pointer;
+    outline: none;
+    transition: all 0.2s ease; 
+    box-shadow: 0 0 10px 2px #fff0;
+}
+
+.task .actions button svg {
+    width: 100%;
+    pointer-events: none;
+}
+
+.task .actions button:hover {
+    box-shadow: 0 0 10px 2px #fff;
+}

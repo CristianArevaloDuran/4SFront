@@ -1,0 +1,119 @@
+.navbar {
+    position: fixed;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    width: 100%;
+    top: 15px;
+}
+
+.navbar .nav-links {
+    width: 50%;
+    background-color: #fff6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    height: 50px;
+    border-radius: 30px;
+    border: 2px solid #444;
+    backdrop-filter: blur(10px);
+    z-index: 100;
+}
+
+.navbar .nav-links .nav-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+    z-index: 10;
+}
+
+.navbar .nav-links a, .navbar .nav-links > button {
+    color: #fff;
+    cursor: pointer;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    height: 100%;
+    padding: 10px 20px;
+    border-radius: 30px;
+    background-color: transparent;
+    border: 2px solid transparent;
+    z-index: 10;
+}
+
+.navbar .nav-links > button {
+    border: 2px solid #fff6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 !important;
+    overflow: hidden;
+    height: 100%;
+    background-color: #fff7;
+}
+
+.navbar .nav-links button img {
+    height: 100%;
+    object-fit: cover;
+    z-index: 10;
+}
+
+.navbar .nav-links .nav-user {
+    padding: 5px;
+    pointer-events: none;
+    position: absolute;
+    opacity: 0 ;
+    top: 0;
+    transition: all 0.2s ease;
+    right: 0;
+    min-width: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+    gap: 2px;
+    background-color: #444;
+    overflow: hidden;
+    border-radius:10px;
+    box-shadow: 0 0 10px #000;
+    border: 2px solid #fff4;
+}
+
+.navbar .nav-links .nav-user.active {
+    pointer-events: all;
+    opacity: 1;
+    top: 50px;
+}
+
+.navbar .nav-links .nav-user button {
+    width: 100%;
+    background-color: transparent;
+    font-size: 15px;
+    text-align: right;
+    color: #fff;
+    border: none !important;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 7px;
+    margin-bottom: 2px;
+}
+
+.navbar .nav-links .nav-user button:last-child {
+    margin-bottom: 0;
+}
+
+
+.navbar .nav-links .nav-user button:hover {
+    background-color: #666;
+    border: 2px solid #fff;
+}
+
+.navbar .nav-links a:hover, .navbar .nav-links > button:hover {
+    background-color: #666;
+    border: 2px solid #fff;
+}

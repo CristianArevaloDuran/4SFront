@@ -1,0 +1,76 @@
+.register {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff3;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 5px #ccca;
+    padding: 20px 30px;
+    border-radius: 30px;
+    min-width: 500px;
+}   
+
+.register h1 {
+    font-size: 20px;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.register form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    width: 100%;
+}
+
+.register form .input-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.register form .input-group label {
+    font-size: 15px;
+    color: #fff;
+}
+
+.register form .input-group input {
+    width: 70%;
+    padding: 10px;
+    border: 0;
+    background-color: transparent;
+    border-bottom: 3px solid #fff;
+    outline: none;
+    color: #fff;
+    font-size: 15px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.register form .input-group input:focus {
+    width: 90%;
+    border-bottom: 3px solid #49e3ee;
+}
+
+.register form button {
+    width: 40%;
+    padding: 10px;
+    border: 0;
+    background-color: #fff;
+    color: #111;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 30px;
+    margin-top: 10px;
+}
+
+.register form button:hover {
+    box-shadow: 0 0 10px #fff5;
+}
