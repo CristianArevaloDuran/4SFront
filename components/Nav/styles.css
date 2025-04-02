@@ -103,6 +103,20 @@
     margin-bottom: 2px;
 }
 
+.navbar .nav-links .nav-user a {
+    width: 100%;
+    background-color: transparent;
+    font-size: 15px;
+    text-align: right;
+    color: #fff;
+    border: none !important;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 7px;
+    margin-bottom: 2px;
+}
+
 .navbar .nav-links .nav-user button:last-child {
     margin-bottom: 0;
 }

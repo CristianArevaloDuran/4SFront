@@ -4,6 +4,7 @@ import useCreateTask from '@/hooks/useCreateTask';
 import useGetPriorities from '@/hooks/useGetPriorities';
 
 import Spinner from '@/components/Spinner/Spinner';
+import RichEditor from '../RichEditor/RichEditor';
 
 import { Poppins } from "next/font/google";
 
@@ -15,16 +16,13 @@ export default function CreateTaskForm() {
         const { title, description, priority, taskCreateError, createTaskLoading, handleTitle, handleDescription, handlePriority, handleSubmit } = useCreateTask(); 
 
     return (
-        <form className={`${poppins.className}`} onSubmit={handleSubmit}>
+        <form className={`${poppins.className} task-add`} onSubmit={handleSubmit}>
             <h1>Add Task</h1>
             <div className='task-input'>
-                <input type='text' placeholder='Title' className={`${poppins.className}`} onChange={handleTitle} value={title}/>
-            </div>
-            <div className='task-input'>
-                <textarea type='text' placeholder='Description' wrap='hard' className={`${poppins.className}`} onChange={handleDescription} value={description}/>
-            </div>
-            <div className='task-input'>
                 
+            </div>
+            <div className='task-input'>
+                <RichEditor></RichEditor>
             </div>
             <div className='task-input'>
                 <select name='priority' className={`${poppins.className}`} onChange={handlePriority} value={priority}>

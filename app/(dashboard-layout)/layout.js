@@ -5,7 +5,7 @@ export default function layout({ children }) {
   return (
       <html lang="en">
         <body>
-          <DashNavbar />
+          <DashNavbar/>
           {children}
         </body>
       </html>

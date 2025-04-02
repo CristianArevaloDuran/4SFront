@@ -1,4 +1,4 @@
- .task-add h1 {
+ .task-add > h1 {
     font-size: 30px;
     color: #fff;
     text-align: center;

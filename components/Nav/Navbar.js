@@ -50,7 +50,7 @@ export default function Navbar() {
                             <img src={img} draggable='false' alt='profile pic' />
                         </button>
                         <div className='nav-user' ref={userRef}>
-                            <button className={poppins.className}>{user.username}</button>
+                            <Link href='/profile' className={poppins.className}>{user.username}</Link>
                             <button className={poppins.className} onClick={useLogout}>Logout</button>
                         </div>
                     </div>
