@@ -2,6 +2,7 @@ import './styles.css';
 
 import { useEditor, EditorContent } from '@tiptap/react'
 import StarterKit from '@tiptap/starter-kit'
+import Placeholder from '@tiptap/extension-placeholder';
 import { Poppins } from 'next/font/google';
 
 import MenuBar from './MenuBar';
@@ -11,20 +12,26 @@ const poppins = Poppins({
   subsets: ['latin']
 });
 
-export default function RichEditor() {
+export default function RichEditor({content, onChange}) {
   const editor = useEditor({
-    extensions: [StarterKit],
-    content: '<p>Hello World! 🌎️</p>',
+    extensions: [
+      StarterKit,
+      Placeholder.configure({
+        placeholder: 'Type something...'
+      })
+    ],
+    content: content,
     editorProps: {
       attributes: {
         class: `editor-content ${poppins.className}`,
       },
     },
-    onChange: (editorState) => {
-      console.log(editorState.getJSON())
+    onUpdate: ({ editor }) => {
+      onChange(editor.getHTML());
     },
     immediatelyRender: false
-  })  
+  })
+  
   return (
     <div className='rich-editor'>
       <MenuBar editor={editor}/>

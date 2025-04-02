@@ -1,4 +1,10 @@
 import './menu-styles.css';
+import { Poppins } from 'next/font/google';
+
+const poppins = Poppins({
+    weight: ['400', '500', '600', '700'],
+    subsets: ['latin']
+});
 
 export default function MenuBar({editor}) {
     if (!editor) {
@@ -41,6 +47,12 @@ export default function MenuBar({editor}) {
             onClick: () => editor.chain().focus().toggleStrike().run(),
             pressed: editor.isActive('strike'),
             title: 'Strike'
+        },
+        {
+            icon: <p className={`${poppins.className}`}>Limpiar</p>,
+            onClick: () => editor.chain().clearContent().run(),
+            pressed: editor.isActive('clearContent'),
+            title: 'Clear Formatting'
         }
     ]
 

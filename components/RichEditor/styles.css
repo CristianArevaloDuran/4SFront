@@ -20,6 +20,19 @@
   overflow-x: hidden;
 }
 
+.tiptap p.is-editor-empty:first-child::before,
+.tiptap h1.is-editor-empty:first-child::before,
+.tiptap h2.is-editor-empty:first-child::before, 
+.tiptap h3.is-editor-empty:first-child::before {
+  color: #adb5bd;
+  content: attr(data-placeholder);
+  float: left;
+  height: 0;
+  pointer-events: none;
+}
+
+
+
 ul, ol {
     padding: 0 1rem;
     margin: 1.25rem 1rem 1.25rem 0.4rem;
@@ -29,6 +42,7 @@ ul, ol {
       margin-bottom: 0.25em;
     }
   }
+
 
 
 /*Media Queries*/

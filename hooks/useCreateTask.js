@@ -3,20 +3,15 @@ import { useTasks } from "@/context/TaskContext";
 
 export default function useCreateTask() {
     const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
+    const [content, setContent] = useState('');
     const [priority, setPriority] = useState('');
     const [createTaskLoading, setCreateTaskLoading] = useState(false);
     const [taskCreateError, setTaskCreateError] = useState('');
 
     const { addTask } = useTasks();
 
-    const handleTitle = (e) => {
-        setTitle(e.target.value);
-    }
-
-    const handleDescription = (e) => {
-        setDescription(e.target.value);
+    const handleContent = (e) => {
+        setContent(e);
     }
 
     const handlePriority = (e) => {
@@ -26,7 +21,7 @@ export default function useCreateTask() {
     const handleSubmit = (e) => {
         e.preventDefault();
         setCreateTaskLoading(true);
-        if (!title || !description || !priority) {
+        if (!content || !priority) {
             setCreateTaskLoading(false);
             setTaskCreateError('All fields are required');
         } else {
@@ -40,8 +35,7 @@ export default function useCreateTask() {
                         },
                         credentials: "include",
                         body: JSON.stringify({ 
-                            title, 
-                            description, 
+                            content, 
                             priority 
                         }),
                     })
@@ -52,8 +46,7 @@ export default function useCreateTask() {
                     } else {
                         const task = {
                             _id: data.task._id,
-                            title: data.task.title,
-                            description: data.task.description,
+                            content: data.task.content,
                             priority: {
                                 _id: data.task.priority._id,
                                 priority: data.task.priority.priority,
@@ -64,10 +57,10 @@ export default function useCreateTask() {
                         }
                         addTask(task);
                         
-                        setTitle('');
-                        setDescription('');
+                        setContent('');
                         setPriority('');
                         setCreateTaskLoading(false);
+                        return true;
                     }
                 } catch (error) {
                     setCreateTaskLoading(false);
@@ -78,5 +71,5 @@ export default function useCreateTask() {
         }
     }
 
-    return { title, description, priority, taskCreateError, createTaskLoading, handleTitle, handleDescription, handlePriority, handleSubmit };
+    return { content, priority, taskCreateError, createTaskLoading, handleContent, handlePriority, handleSubmit };
 }

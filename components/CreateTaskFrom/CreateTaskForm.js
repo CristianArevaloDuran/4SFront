@@ -2,6 +2,7 @@ import './styles.css';
 
 import useCreateTask from '@/hooks/useCreateTask';
 import useGetPriorities from '@/hooks/useGetPriorities';
+import { useState } from 'react';
 
 import Spinner from '@/components/Spinner/Spinner';
 import RichEditor from '../RichEditor/RichEditor';
@@ -11,9 +12,12 @@ import { Poppins } from "next/font/google";
 const poppins = Poppins({weight: ["400"], subsets: ["latin"]});
 
 export default function CreateTaskForm() {
+        const onChange = (content) => {
+            handleContent(content);
+    };
 
     const { priorities, loading, error } = useGetPriorities();
-        const { title, description, priority, taskCreateError, createTaskLoading, handleTitle, handleDescription, handlePriority, handleSubmit } = useCreateTask(); 
+    const { content, priority, taskCreateError, createTaskLoading, handleContent, handlePriority, handleSubmit } = useCreateTask(); 
 
     return (
         <form className={`${poppins.className} task-add`} onSubmit={handleSubmit}>
@@ -22,7 +26,7 @@ export default function CreateTaskForm() {
                 
             </div>
             <div className='task-input'>
-                <RichEditor></RichEditor>
+                <RichEditor content={content} onChange={onChange}></RichEditor>
             </div>
             <div className='task-input'>
                 <select name='priority' className={`${poppins.className}`} onChange={handlePriority} value={priority}>
