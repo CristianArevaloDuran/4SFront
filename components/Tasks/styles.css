@@ -6,3 +6,49 @@
     font-size: 1.5rem;
     color: #666;
 }
+
+.tasks {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    gap: 20px;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.tasks::-webkit-scrollbar {
+
+    background-color: #fff4;
+
+    width: 10px;
+    border: 2px solid #fff4;
+
+    border-radius: 10px;
+    background-color: #fff4;
+    box-shadow: 0 0 10px 2px #fff0;
+}
+
+.tasks::-webkit-scrollbar-thumb {
+    background-color: #fff8;
+    border-radius: 10px;
+}
+
+/*Media Queries*/
+
+@media (max-width: 768px) {
+    .tasks {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 10px;
+        flex-wrap: wrap;
+    }
+    .task {
+        width: 90%;
+    }
+}
