@@ -12,7 +12,81 @@
     flex-direction: row;
     align-items: flex-start;
     width: 100%;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tasks .pending-tasks, .tasks .done-tasks {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    padding-top: 10px;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 20px;
+}
+
+.collapsed {
+    display: none !important;
+}
+
+.rounded {
+    border-radius: 10px !important;
+    border: 2px solid #fff !important;
+}
+
+.rounded svg {
+    transform: rotate(180deg);
+}
+
+.tasks .pending-tasks .pending-tasks-header, .tasks .done-tasks .done-tasks-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 10px 10px;
+    cursor: pointer;
+    border: 2px solid #fff;
+    border-radius: 10px 10px 0 0;
+    border-bottom: none;
+}
+
+.tasks .pending-tasks .pending-tasks-header > h2, .tasks .done-tasks .done-tasks-header > h2 {
+    color: #fff;
+    width: 100%;
+    pointer-events: none;
+}
+
+.tasks .pending-tasks .pending-tasks-header .pending-tasks-count, .tasks .done-tasks .done-tasks-header .done-tasks-count {
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    pointer-events: none;
+}
+
+.tasks .pending-tasks .pending-tasks-header svg, .tasks .done-tasks .done-tasks-header svg {
+    pointer-events: none;
+    color: #fff;
+}
+
+.tasks .pending-tasks .pending-tasks-header svg path, .tasks .done-tasks .done-tasks-header svg path {
+    pointer-events: none;
+    color: #fff;
+}
+
+.tasks .pending-tasks .pending-tasks-container, .tasks .done-tasks .done-tasks-container {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
     gap: 20px;
+    border: 2px solid #fff;
+    border-radius: 0 0 30px 30px;
+    border-top: none;
     padding-top: 10px;
     flex-wrap: wrap;
     overflow-y: auto;
@@ -45,10 +119,37 @@
         justify-content: center;
         align-items: center;
         width: 100%;
-        padding: 10px;
         flex-wrap: wrap;
     }
     .task {
-        width: 90%;
+        width: 100%;
+    }
+    .tasks::-webkit-scrollbar {
+        width: 5px;
+        border: 2px solid #fff4;
+    }
+    .tasks .pending-tasks, .tasks .done-tasks {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 0 10px 10px 10px;
+        flex-wrap: wrap;
+    }
+    .tasks .pending-tasks .pending-tasks-header, .tasks .done-tasks .done-tasks-header {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 10px 0 0 0;
+    }
+    .tasks .pending-tasks .pending-tasks-header > h2, .tasks .done-tasks .done-tasks-header > h2 {
+        width: 100%;
+        text-align: center;
+    }
+    .tasks .pending-tasks .pending-tasks-container, .tasks .done-tasks .done-tasks-container {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+        flex-wrap: wrap;
     }
 }

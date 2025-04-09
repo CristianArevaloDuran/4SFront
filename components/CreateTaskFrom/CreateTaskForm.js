@@ -2,7 +2,7 @@ import './styles.css';
 
 import useCreateTask from '@/hooks/useCreateTask';
 import useGetPriorities from '@/hooks/useGetPriorities';
-import { useState } from 'react';
+import { useRef } from 'react';
 
 import Spinner from '@/components/Spinner/Spinner';
 import RichEditor from '../RichEditor/RichEditor';
@@ -19,8 +19,18 @@ export default function CreateTaskForm() {
     const { priorities, loading, error } = useGetPriorities();
     const { content, priority, taskCreateError, createTaskLoading, handleContent, handlePriority, handleSubmit } = useCreateTask(); 
 
+    const formRef = useRef(null);
+
+    const handleSend = async (e) => {
+        e.preventDefault();
+        const createdTask = await handleSubmit(e);
+        if (createdTask) {
+            formRef.current.parentNode.classList.remove("active");
+        }
+    }
+
     return (
-        <form className={`${poppins.className} task-add`} onSubmit={handleSubmit}>
+        <form ref={formRef} className={`${poppins.className} task-add`} onSubmit={(e) => handleSend(e)}>
             <h1>Add Task</h1>
             <div className='task-input'>
                 

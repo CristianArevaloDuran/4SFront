@@ -18,7 +18,7 @@ export default function useCreateTask() {
         setPriority(e.target.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setCreateTaskLoading(true);
         if (!content || !priority) {
@@ -67,7 +67,7 @@ export default function useCreateTask() {
                     setTaskCreateError('An error occurred');
                 }
             }
-            fetchData();
+            return await fetchData();
         }
     }
 
