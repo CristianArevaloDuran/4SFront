@@ -11,7 +11,7 @@ export default function useCreateTask() {
     const { addTask } = useTasks();
 
     const handleContent = (e) => {
-        setContent(e);
+        setContent(e);   
     }
 
     const handlePriority = (e) => {

@@ -140,6 +140,37 @@
     border-radius: 10px;
 }
 
+/*Link*/
+
+.task .menu .menu-btns a {
+    width: 100%;
+    cursor: pointer;
+    background-color: transparent;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    margin-bottom: 5px;
+    transition: all 0.2s ease;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 15px;
+}
+
+.task .menu .menu-btns a p {
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 10px;
+    margin-bottom: 0 !important;
+}
+
+.task .menu .menu-btns a:hover {
+    background-color: #fff4;
+}
+
 .task .menu .menu-btns .delete-btn {
     background-color: #ff0000;
     color: #fff;

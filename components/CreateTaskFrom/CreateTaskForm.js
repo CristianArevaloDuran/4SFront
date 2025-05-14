@@ -12,8 +12,8 @@ import { Poppins } from "next/font/google";
 const poppins = Poppins({weight: ["400"], subsets: ["latin"]});
 
 export default function CreateTaskForm() {
-        const onChange = (content) => {
-            handleContent(content);
+    const onChange = (content) => {
+        handleContent(content);
     };
 
     const { priorities, loading, error } = useGetPriorities();

@@ -2,6 +2,7 @@ import { createContext, useState, useContext, useEffect } from "react";
 import useGetTasks from '@/hooks/useGetTasks';
 import useDeleteTask from "@/hooks/useDeleteTask";
 import useDoneTask from "@/hooks/useDoneTask";
+import useEditTask from "@/hooks/useEditTask";
 
 const TaskContext = createContext({
     tasks: [],
@@ -41,6 +42,8 @@ export function TaskProvider({ children }) {
 
     const { fetchDoneTask, loading: doneTaskLoading, error: doneTaskError } = useDoneTask();
 
+    const { serverEditTask, loading: editTaskLoading, error: editTaskError } = useEditTask();
+
     const deleteTask = (id) => {
         setTasks(tasks.filter(task => task._id !== id));
         setPendingTasks(pendingTasks.filter(task => task._id !== id));
@@ -75,8 +78,25 @@ export function TaskProvider({ children }) {
         }
     }
 
+    const editTask = (id, content, priority) => {
+        const taskToEdit = tasks.find(task => task._id === id);
+        if (taskToEdit) {
+            setTasks(tasks.map(task => task._id === id ? { ...task, content: taskToEdit.content } : task));
+            setPendingTasks(pendingTasks.map(task => task._id === id ? { ...task, content: taskToEdit.content } : task));
+            setDoneTasks(doneTasks.map(task => task._id === id ? { ...task, content: taskToEdit.content } : task));
+        }
+        try {
+            serverEditTask(id, content, priority);
+        } catch (error) {
+            console.error("Error al editar la tarea:", error);
+            setTasks(prevTasks => [...prevTasks, tasks.find(task => task._id === id)]);
+            setPendingTasks(prevTasks => [...prevTasks, tasks.find(task => task._id === id)]);
+            setDoneTasks(prevTasks => [...prevTasks, tasks.find(task => task._id === id)]);
+        }
+    }
+
     return (
-        <TaskContext.Provider value={{ tasks, pendingTasks, doneTasks, addTask, deleteTask, doneTask, loading, error }}>
+        <TaskContext.Provider value={{ tasks, pendingTasks, doneTasks, addTask, deleteTask, doneTask, editTask, loading, error }}>
             {children}
         </TaskContext.Provider>
     );
