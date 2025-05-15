@@ -8,6 +8,11 @@ export default function useEditTask() {
 
     const serverEditTask = async (id, content, priority) => {
         setLoading(true);
+        if (!content || !priority || content === '' || priority === '') {
+            setLoading(false);
+            setError("Please fill in all fields");
+            return;
+        }
         try {
             const response = await fetch(`${apiUrl}update-task/${id}`, {
                 method: "PUT",

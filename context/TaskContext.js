@@ -96,7 +96,7 @@ export function TaskProvider({ children }) {
     }
 
     return (
-        <TaskContext.Provider value={{ tasks, pendingTasks, doneTasks, addTask, deleteTask, doneTask, editTask, loading, error }}>
+        <TaskContext.Provider value={{ tasks, pendingTasks, doneTasks, addTask, deleteTask, doneTask, editTask, loading, error, editTaskError }}>
             {children}
         </TaskContext.Provider>
     );

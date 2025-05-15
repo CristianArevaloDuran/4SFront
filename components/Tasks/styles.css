@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    width: 100%;
+    width: 100% !important;
     padding-top: 10px;
     flex-wrap: wrap;
     overflow-y: auto;
@@ -32,10 +32,12 @@
 
 .collapsed {
     display: none !important;
+    width: 100% !important;
 }
 
 .rounded {
     border-radius: 10px !important;
+    width: 100% !important;
     border: 2px solid #fff !important;
 }
 
@@ -47,7 +49,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
+    width: 100% !important;
     padding: 10px 10px;
     cursor: pointer;
     border: 2px solid #fff;
@@ -57,7 +59,7 @@
 
 .tasks .pending-tasks .pending-tasks-header > h2, .tasks .done-tasks .done-tasks-header > h2 {
     color: #fff;
-    width: 100%;
+    width: 100% !important;
     pointer-events: none;
 }
 

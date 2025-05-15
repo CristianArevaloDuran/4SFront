@@ -1,4 +1,5 @@
 'use client';
+import './styles.css';
 import useGetTask from "@/hooks/useGetTask";
 import { useEffect, useState } from "react";
 import RichEditor from "@/components/RichEditor/RichEditor";
@@ -7,12 +8,13 @@ import { useTasks } from "@/context/TaskContext";
 import useGetPriorities from "@/hooks/useGetPriorities";
 
 import { Poppins } from "next/font/google";
+import Link from "next/link";
 
 const poppins = Poppins({ weight: ["400"], subsets: ["latin"] });
 
 export default function TaskPage({ params }) {
 
-    const { editTask } = useTasks();
+    const { editTask, editTaskError } = useTasks();
     const { id } = React.use(params)
     const { task, loading, error, getTask } = useGetTask();
     const { priorities, loading: prioritiesLoading, error: prioritiesError } = useGetPriorities();
@@ -33,6 +35,8 @@ export default function TaskPage({ params }) {
 
     const handleEdit = (e) => {
         editTask(id, content, priority);
+        console.log(editTaskError);
+        
     }
 
     useEffect(() => {
@@ -43,15 +47,20 @@ export default function TaskPage({ params }) {
         getTask(id);
     }, [id]);
 
+    useEffect(() => {
+        if (task) {
+            setContent(task.content);
+            setPriority(task.priority);
+        }
+    }, [task]);
+
     if (loading) return <div>Loading...</div>;
     if (error) return <div>{error}</div>;
 
     return (
         <div className="task-page">
-            <h1>Edit Task</h1>
-            <button onClick={handleEdit}>
-                Done
-            </button>
+            <h1 className={`${poppins.className} title`}>Edit Task</h1>
+            <RichEditor content={task.content} onChange={onChange} className='editor' />
             <div className='task-input'>
                 <select name='priority' className={`${poppins.className}`} onChange={handlePriority} value={priority}>
                     <option value=''>Select Priority</option>
@@ -64,7 +73,17 @@ export default function TaskPage({ params }) {
                     }
                 </select>
             </div>
-            <RichEditor content={task.content} onChange={onChange} />
+            <p className={`${poppins.className} error`}>
+                {editTaskError}
+            </p>
+            <div className='actions'>
+                <button onClick={handleEdit} className={`${poppins.className}`}>
+                    Done
+                </button>
+                <Link href='/dashboard' className={`${poppins.className}`}>
+                    <p>Back</p>
+                </Link>
+            </div>
         </div>
     );
 }
