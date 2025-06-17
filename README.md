@@ -36,16 +36,16 @@ Este proyecto es una aplicación web para gestionar tareas con prioridad, diseñ
 
 ```
 4SFront/
-├─ app/                # Páginas y rutas Next.js
-├─ components/         # Componentes reutilizables
-├─ context/            # Estado global via Context API
-├─ hooks/              # Custom React hooks
-├─ public/             # Recursos estáticos
-├─ middleware.js       # Protección de rutas, redirecciones
-├─ next.config.mjs     # Configuración de build y rutas
-├─ jsconfig.json       # Alias de importación
-├─ package.json        # Dependencias y scripts
-└─ README.md           # Documentación general
+├─ app/                
+├─ components/         
+├─ context/            
+├─ hooks/              
+├─ public/             
+├─ middleware.js       
+├─ next.config.mjs     
+├─ jsconfig.json       
+├─ package.json        
+└─ README.md           
 ```
 
 ---
