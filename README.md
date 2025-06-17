@@ -6,9 +6,9 @@ Este proyecto es una aplicación web para gestionar tareas con prioridad, diseñ
 
 ## 🧭 Contenido
 
-- [Demo](#demo)
-- [Tecnologías](#tecnologías)
-- [Estructura del proyecto](#estructura-del-proyecto)
+- Capturas
+- Tecnologías
+- Estructura del proyecto
 
 ---
 
